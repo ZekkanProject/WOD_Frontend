@@ -15,11 +15,13 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: Install dependencies
-        env:
-          WORKING_DIRECTORY: ../WOD_FRONTEND/WOD
-        run: npm install
+        run: |
+          cd WOD_FRONTEND/WOD
+          npm install
       - name: Test and coverage
-        run: npm run coverage
+        run: |
+          cd WOD_FRONTEND/WOD
+          npm run coverage
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
