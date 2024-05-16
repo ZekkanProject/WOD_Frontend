@@ -19,8 +19,8 @@ jobs:
         run: |
           npm install
       - name: Test and coverage
+        working-directory: ./WOD
         run: |
-          cd WOD_FRONTEND/WOD
           npm run coverage
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
